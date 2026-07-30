@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regalo Pixelado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section id="lock-screen" class="panel lock-screen" aria-label="Abrir carta">
+      <button id="heart-btn" class="heart-btn" type="button" aria-label="Abrir la carta">
+        <span class="heart-mark" aria-hidden="true">
+          <!-- SVG pixel heart (inline, editable) -->
+          <svg class="heart-svg" viewBox="0 0 160 140" width="160" height="140" role="img" aria-hidden="true">
+            <defs>
+              <style> .p{shape-rendering:crispEdges;} </style>
+            </defs>
+            <!-- darker left shading -->
+            <g class="p">
+              <!-- Row by row rectangles (pixel grid 10x10) -->
+              <!-- y = 0 -->
+              <rect x="30" y="0" width="20" height="20" fill="#e23a3a" />
+              <rect x="50" y="0" width="20" height="20" fill="#e23a3a" />
+              <rect x="90" y="0" width="20" height="20" fill="#e23a3a" />
+              <rect x="110" y="0" width="20" height="20" fill="#e23a3a" />
+              <!-- y = 20 -->
+              <rect x="10" y="20" width="20" height="20" fill="#e23a3a" />
+              <rect x="30" y="20" width="20" height="20" fill="#ff3a3a" />
+              <rect x="50" y="20" width="20" height="20" fill="#ff3a3a" />
+              <rect x="70" y="20" width="20" height="20" fill="#ff3a3a" />
+              <rect x="90" y="20" width="20" height="20" fill="#ff3a3a" />
+              <rect x="110" y="20" width="20" height="20" fill="#ff3a3a" />
+              <rect x="130" y="20" width="20" height="20" fill="#e23a3a" />
+              <!-- y = 40 -->
+              <rect x="0" y="40" width="20" height="20" fill="#e23a3a" />
+              <rect x="20" y="40" width="20" height="20" fill="#ff3a3a" />
+              <rect x="40" y="40" width="20" height="20" fill="#ff3a3a" />
+              <rect x="60" y="40" width="20" height="20" fill="#ff3a3a" />
+              <rect x="80" y="40" width="20" height="20" fill="#ff3a3a" />
+              <rect x="100" y="40" width="20" height="20" fill="#ff3a3a" />
+              <rect x="120" y="40" width="20" height="20" fill="#ff3a3a" />
+              <rect x="140" y="40" width="20" height="20" fill="#e23a3a" />
+              <!-- y = 60 -->
+              <rect x="10" y="60" width="20" height="20" fill="#e23a3a" />
+              <rect x="30" y="60" width="20" height="20" fill="#ff3a3a" />
+              <rect x="50" y="60" width="20" height="20" fill="#ff3a3a" />
+              <rect x="70" y="60" width="20" height="20" fill="#ff3a3a" />
+              <rect x="90" y="60" width="20" height="20" fill="#ff3a3a" />
+              <rect x="110" y="60" width="20" height="20" fill="#ff3a3a" />
+              <rect x="130" y="60" width="20" height="20" fill="#e23a3a" />
+              <!-- y = 80 -->
+              <rect x="30" y="80" width="20" height="20" fill="#e23a3a" />
+              <rect x="50" y="80" width="20" height="20" fill="#ff3a3a" />
+              <rect x="70" y="80" width="20" height="20" fill="#ff3a3a" />
+              <rect x="90" y="80" width="20" height="20" fill="#ff3a3a" />
+              <rect x="110" y="80" width="20" height="20" fill="#e23a3a" />
+              <!-- y = 100 -->
+              <rect x="50" y="100" width="20" height="20" fill="#e23a3a" />
+              <rect x="70" y="100" width="20" height="20" fill="#ff3a3a" />
+              <rect x="90" y="100" width="20" height="20" fill="#e23a3a" />
+              <!-- y = 120 (point) -->
+              <rect x="70" y="120" width="20" height="20" fill="#d22b2b" />
+            </g>
+            <!-- small highlight (yellow pixel) -->
+            <rect x="116" y="18" width="16" height="16" fill="#ffd23f" class="p" />
+          </svg>
+        </span>
+        <span class="heart-label">Haz clic para abrir tu regalo!!</span>
+      </button>
+    </section>
+
+    <section id="letter-screen" class="panel letter-screen is-hidden" aria-live="polite">
+      <div class="inventory-card">
+        <p class="inventory-tag">CARTA PIXELADA</p>
+        <p id="letter-text" class="letter-text"></p>
+      </div>
+
+      <div id="question-section" class="question-section is-hidden">
+        <h2>¿Me quieres?</h2>
+        <div id="buttons-area" class="buttons-area">
+          <button id="btn-si" class="choice-btn yes-btn" type="button">Sí</button>
+          <button id="btn-no" class="choice-btn no-btn" type="button">No</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="final-screen" class="panel final-screen is-hidden" aria-live="polite">
+      <div class="final-card">
+        <h2 id="friend-day" class="friend-day is-hidden">Feliz día de la amistad</h2>
+        <div class="photo-frame">
+          <img id="final-photo" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="mi-imagen/WhatsApp%20Image%202026-07-30%20at%2014.56.36.jpeg" alt="Foto final" />
+          <div id="image-placeholder" class="image-placeholder">Coloca aquí tu foto final</div>
+        </div>
+        <h1>¡Te quiero!</h1>
+        <p id="final-message"></p>
+        <button id="btn-reset" class="choice-btn" type="button">Volver al inicio</button>
+      </div>
+      <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <audio id="clippy-sound" class="media-sound is-hidden" preload="auto">
+    <source src="mi-imagen/pencil-writing.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
